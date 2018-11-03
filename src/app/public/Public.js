@@ -1,4 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Products from './products/Products'
+import Customers from './customers/Customers'
 
-export default () => <Products />
+export default () => (
+  <Fragment>
+    <Products />
+    <Customers />
+  </Fragment>
+)
