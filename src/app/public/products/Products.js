@@ -34,12 +34,7 @@ export default () => (
       if (loading) return <p>Loading...</p>
       if (error) return <p>Error :(</p>
 
-      return (
-        <>
-          <h1>Products</h1>
-          <Table element={product} />
-        </>
-      )
+      return <Table element={product} />
     }}
   </Query>
 )

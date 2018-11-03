@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import Public from './public/Public'
 
 class App extends Component {
   render() {
-    return <Public />
+    return <Route path="/" component={Public} />
   }
 }
 

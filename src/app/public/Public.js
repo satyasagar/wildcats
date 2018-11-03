@@ -1,10 +1,8 @@
 import React, { Fragment } from 'react'
-import Products from './products/Products'
-import Customers from './customers/Customers'
+import Routes from './Routes'
 
 export default () => (
   <Fragment>
-    <Products />
-    <Customers />
+    <Routes />
   </Fragment>
 )
