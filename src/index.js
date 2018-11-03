@@ -4,6 +4,7 @@ import App from './app/App'
 import * as serviceWorker from './serviceWorker'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
+import './styles'
 
 const client = new ApolloClient({
   uri: 'https://jamstack-hackthon.herokuapp.com/v1alpha1/graphql'
