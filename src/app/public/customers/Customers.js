@@ -1,6 +1,7 @@
 import React from 'react'
 import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
+import { Table } from '../../../common/components'
 
 const GET_CUSTOMERS = gql`
   {
@@ -18,7 +19,7 @@ export default () => (
       if (loading) return <p>Loading...</p>
       if (error) return <p>Error :(</p>
 
-      return customer.map(costumer => <h1>Customer: {costumer.name}</h1>)
+      return <Table element={customer} />
     }}
   </Query>
 )
