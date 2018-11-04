@@ -1,7 +1,7 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { history } from '../../utils'
-
+import ck_red from '../images/ck_red.png'
 export default ({
   element,
   match: { params, path },
@@ -14,7 +14,12 @@ export default ({
   return elementObj ? (
     <>
       {Object.entries(elementObj).map(([key, value]) => (
-        <h3>{`${key}: ${value}`}</h3>
+        //console.log(key)
+        key !== 'img' ? <h3>{`${key}: ${value}`}</h3> : <img src={ck_red.png} alt='nike'/>
+        // if(${key} == 'img') {
+        //   <link rel="icon" href="%PUBLIC_URL%/images/${values}">
+        // }
+        // <h3>{`${key}: ${value}`}</h3>
       ))}
       {deleteElement && (
         <Mutation

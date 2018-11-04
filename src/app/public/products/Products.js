@@ -15,6 +15,7 @@ const GET_PRODUCTS = gql`
       color
       costprice
       selling_price
+      tags
       glass_coating
       glass_design
       quantity_available
@@ -25,6 +26,7 @@ const GET_PRODUCTS = gql`
       company_id
       quality_id
       supplier_id
+      img
     }
   }
 `
