@@ -1,7 +1,8 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
-import { Table } from '../../../common/components'
+import { Table, Detail } from '../../../common/components'
 
 const GET_CUSTOMERS = gql`
   {
@@ -19,7 +20,20 @@ export default () => (
       if (loading) return <p>Loading...</p>
       if (error) return <p>Error :(</p>
 
-      return <Table element={customer} />
+      return (
+        <>
+          <Route
+            exact
+            path="/customers"
+            render={() => <Table element={customer} />}
+          />
+          <Route
+            exact
+            path="/customers/:id"
+            render={props => <Detail element={customer} {...props} />}
+          />
+        </>
+      )
     }}
   </Query>
 )

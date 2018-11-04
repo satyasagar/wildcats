@@ -1,7 +1,18 @@
 import React from 'react'
 import { Icon, Menu, Table } from 'semantic-ui-react'
+import { history } from '../../utils'
+import { Link } from 'react-router-dom'
 
 const getHeaders = element => Object.keys(element[0])
+const getTableCell = (key, value) => {
+  return key === 'id' ? (
+    <Link to={`${history.location.pathname}/${value}`}>
+      <Table.Cell>{value || String(value)}</Table.Cell>
+    </Link>
+  ) : (
+    <Table.Cell>{value || String(value)}</Table.Cell>
+  )
+}
 
 export default ({ element }) => (
   <Table celled>
@@ -16,9 +27,7 @@ export default ({ element }) => (
     <Table.Body>
       {element.map(el => (
         <Table.Row>
-          {Object.values(el).map(value => (
-            <Table.Cell>{value || String(value)}</Table.Cell>
-          ))}
+          {Object.entries(el).map(([key, value]) => getTableCell(key, value))}
         </Table.Row>
       ))}
     </Table.Body>
