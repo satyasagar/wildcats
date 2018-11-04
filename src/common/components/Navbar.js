@@ -1,10 +1,17 @@
 import React from 'react'
-import { Tab } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const panes = [
-  { menuItem: 'Tab 1', render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> },
-  { menuItem: 'Tab 2', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
-  { menuItem: 'Tab 3', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> }
+  { title: 'Products', path: 'products' },
+  { title: 'Customers', path: 'customers' }
 ]
 
-export default () => <Tab panes={panes} />
+export default () => (
+  <>
+    {panes.map(({ title, path }) => (
+      <Link to={path}>
+        <h3>{title}</h3>
+      </Link>
+    ))}
+  </>
+)

@@ -1,3 +1,4 @@
 import React from 'react'
+import { Navbar } from '../../../common/components'
 
-export default () => <h1>Landing</h1>
+export default () => <Navbar />
