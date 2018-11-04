@@ -6,7 +6,7 @@ import { Table, Detail } from '../../../common/components'
 
 const GET_PRODUCTS = gql`
   {
-    product {
+    product(where: { active: { _eq: true } }) {
       id
       name
       product_type
@@ -29,6 +29,14 @@ const GET_PRODUCTS = gql`
   }
 `
 
+const DELETE_PRODUCT = gql`
+  mutation delete_product($id: Int!) {
+    update_product(where: { id: { _eq: $id } }, _set: { active: false }) {
+      affected_rows
+    }
+  }
+`
+
 export default () => (
   <Query query={GET_PRODUCTS}>
     {({ loading, error, data: { product = [] } }) => {
@@ -45,7 +53,14 @@ export default () => (
           <Route
             exact
             path="/products/:id"
-            render={props => <Detail element={product} {...props} />}
+            render={props => (
+              <Detail
+                element={product}
+                getElements={GET_PRODUCTS}
+                deleteElement={DELETE_PRODUCT}
+                {...props}
+              />
+            )}
           />
         </>
       )
